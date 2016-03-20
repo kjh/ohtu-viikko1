@@ -64,6 +64,39 @@ public class VarastoTest {
         // varastossa pitäisi olla tilaa 10 - 8 + 2 eli 4
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
+    
+    @Test
+    public void otetaanYliSaldon() {
+        varasto.otaVarastosta(varasto.getSaldo() + 1);
+
+        // varastossa pitäisi olla tilaa 10
+        assertEquals(10, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void lisaaYliTilan() {
+        varasto.lisaaVarastoon(varasto.paljonkoMahtuu() + 1);
+
+        // varastossa pitäisi olla tilaa 0
+        assertEquals(0, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+    
+     @Test
+    public void otetaanNegatiivenenMaara() {
+        varasto.otaVarastosta(-1);
+
+        // varastossa pitäisi olla tilaa 10
+        assertEquals(10, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void lisataanNegatiivenenMaara() {
+        varasto.lisaaVarastoon(-1);
+
+        // varastossa pitäisi olla tilaa 10
+        assertEquals(10, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
 
     @Test
     public void konstr() {
