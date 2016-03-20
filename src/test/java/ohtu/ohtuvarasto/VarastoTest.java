@@ -67,7 +67,7 @@ public class VarastoTest {
     
     @Test
     public void otetaanYliSaldon() {
-        varasto.otaVarastosta(varasto.getSaldo() + 1);
+        varasto.otaVarastosta(varasto.getSaldo() + 10);
 
         // varastossa pitäisi olla tilaa 10
         assertEquals(10, varasto.paljonkoMahtuu(), vertailuTarkkuus);
